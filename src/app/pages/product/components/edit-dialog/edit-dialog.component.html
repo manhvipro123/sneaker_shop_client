@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Update Product</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <form [formGroup]="form" (submit)="submit()">
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Id</ion-label>
+            <ion-input placeholder="Enter" type="number" formControlName="id"></ion-input>
+            <ion-note slot="error">Invalid id</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Name</ion-label>
+            <ion-input placeholder="Enter" type="text" formControlName="name"></ion-input>
+            <ion-note slot="error">Invalid name</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Description</ion-label>
+            <ion-textarea placeholder="Enter" type="text" formControlName="description"></ion-textarea>
+            <ion-note slot="error">Invalid description</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Price</ion-label>
+            <ion-input placeholder="Enter" type="number" formControlName="price"></ion-input>
+            <ion-note slot="error">Invalid price</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">ImageUrl</ion-label>
+            <ion-input placeholder="Enter" type="text" formControlName="imageUrl"></ion-input>
+            <ion-note slot="error">Invalid imageUrl</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Category</ion-label>
+            <ion-input placeholder="Enter" type="text" formControlName="category"></ion-input>
+            <ion-note slot="error">Invalid category</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Quantity</ion-label>
+            <ion-input placeholder="Enter" type="number" formControlName="quantity"></ion-input>
+            <ion-note slot="error">Invalid quantity</ion-note>
+        </ion-item>
+        <ion-button type="submit" expand="block" [disabled]="!form.valid">Update</ion-button>
+    </form>
+</ion-content>

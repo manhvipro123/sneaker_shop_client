@@ -1,0 +1,17 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+.paginator {
+  .ngx-pagination {
+      padding: 0;
+      li:not(.current, .pagination-next, .pagination-previous) {
+          background: rgba(235, 235, 235, 1);
+      }
+
+      a,
+      .current {
+          padding: 1rem 1.5rem;
+      }
+  }
+}

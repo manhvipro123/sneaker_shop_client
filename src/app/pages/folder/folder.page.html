@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Store</ion-title>
+  </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-searchbar show-clear-button="focus" placeholder="Show on Focus" [debounce]="1000"
+      (ionChange)="handleChange($event)"></ion-searchbar>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Store</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ionic-padding">
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-card *ngFor="let sneaker of sneakerList | paginate : 
+    { itemsPerPage: itemsPerPage, currentPage: currentPage }; 
+    let i = index" [attr.data-index]="i">
+      <ion-img src="{{sneaker.imageUrl}}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{sneaker.name}}</ion-card-title>
+        <ion-card-subtitle>{{sneaker.price}}$</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{sneaker.description}}
+      </ion-card-content>
+      <!-- <ion-button fill="clear" class="ion-float-left" (click)="openModal(sneaker.id)">Details</ion-button> -->
+      <ion-button fill="clear" class="ion-float-right" (click)="presentPopover($event,sneaker)">Add To
+        Cart</ion-button>
+    </ion-card>
+  </div>
+  <!-- Implement the app-tile component
+  <app-tile class="grid__tile" *ngFor="let sneaker of sneakerList | paginate : 
+          { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: count }; 
+          let i = index " [current]="i" [attr.data-index]="i"></app-tile> -->
+  <!-- Implement ngx-pagination -->
+  <pagination-controls class="paginator" previousLabel="Prev" nextLabel="Next"
+    (pageChange)="onChange($event)"></pagination-controls>
+</ion-content>

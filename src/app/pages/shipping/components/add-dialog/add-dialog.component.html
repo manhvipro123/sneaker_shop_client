@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Add Shipping</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <form [formGroup]="form" (submit)="submit()">
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Id</ion-label>
+            <ion-input placeholder="Enter" type="number" formControlName="id"></ion-input>
+            <ion-note slot="error">Invalid id</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">OrderID</ion-label>
+            <ion-input placeholder="Enter" type="number" formControlName="orderID"></ion-input>
+            <ion-note slot="error">Invalid name</ion-note>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label position="fixed">Status</ion-label>
+            <ion-input placeholder="Enter" type="text" formControlName="status"></ion-input>
+            <ion-note slot="error">Invalid status</ion-note>
+        </ion-item>
+        <ion-button type="submit" expand="block" [disabled]="!form.valid">Create</ion-button>
+    </form>
+</ion-content>

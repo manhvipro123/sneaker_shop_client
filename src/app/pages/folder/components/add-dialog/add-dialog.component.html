@@ -1,0 +1,10 @@
+<ion-content class="ion-padding">
+    <p style="margin-bottom: 5px;">Enter the quantity you want to add:</p>
+    <form [formGroup]="form" (submit)="addToCart()">
+        <ion-item counter="true" class="ion-no-padding">
+            <ion-input placeholder="Enter" type="number" formControlName="quantity" maxlength="2"></ion-input>
+            <ion-note slot="error">Invalid number</ion-note>
+        </ion-item>
+        <ion-button type="submit" expand="block" [disabled]="!form.valid">Add to cart</ion-button>
+    </form>
+</ion-content>

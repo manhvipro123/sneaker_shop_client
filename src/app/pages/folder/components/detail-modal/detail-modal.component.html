@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Details</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-no-padding">
+    <div class="container">
+        <div class="card">
+            <div class="card-head">
+                <img src="../../../assets/images/sneakers-logo.png" alt="logo" class="card-logo">
+                <img src="../../../assets/images/Giay_Stan_Smith_trang_FX5502_01_standard-removebg-preview.png"
+                    height="300" width="300" alt="Shoe" class="product-img">
+                <div class="product-detail">
+                    <h2>{{sneaker.name}}</h2> {{sneaker.description}}
+                </div>
+                <span class="back-text">
+                    FAS
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="product-desc">
+                    <span class="product-title">
+                        Hartbee<b>spoort</b>
+                        <span class="badge">
+                            New
+                        </span>
+                    </span>
+                    <span class="product-caption">
+                        {{sneaker!.category}} Collection
+                    </span>
+                    <span class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star grey"></i>
+                    </span>
+                </div>
+                <div class="product-properties">
+                    <span class="product-size">
+                        <h4>Size</h4>
+                        <ul class="ul-size">
+                            <li><a >7</a></li>
+                            <li><a >8</a></li>
+                            <li><a >9</a></li>
+                            <li><a  class="active">10</a></li>
+                            <li><a >11</a></li>
+                        </ul>
+                    </span>
+                    <span class="product-color">
+                        <h4>Colour</h4>
+                        <ul class="ul-color">
+                            <li><a  class="orange active"></a></li>
+                            <li><a  class="green"></a></li>
+                            <li><a  class="yellow"></a></li>
+                        </ul>
+                    </span>
+                    <span class="product-price">
+                        USD<b>{{sneaker.price}}</b>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

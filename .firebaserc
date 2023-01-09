@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "softwarearchitecture-31d3f": {
+      "hosting": {
+        "shoe_shop": [
+          "softwarearchitecture-31d3f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "softwarearchitecture-31d3f"
+  }
+}

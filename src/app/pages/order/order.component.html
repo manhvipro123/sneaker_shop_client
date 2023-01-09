@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Order</ion-title>
+    <!-- <ion-progress-bar type="indeterminate" color="primary" *ngIf="progressShow"></ion-progress-bar> -->
+    <!-- <ion-item class="ion-no-padding" detail="false" lines="none" slot="end" button
+    (click)="openAddModal()">
+      <span class="material-symbols-outlined" >
+        add_notes
+      </span>
+    </ion-item> -->
+  </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-searchbar show-clear-button="focus" placeholder="Show on Focus" [debounce]="1000"
+      (ionChange)="handleChange($event)"></ion-searchbar>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Order List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-no-padding">
+    <ion-list [inset]="true" class="ion-no-padding" lines="inset">
+      <ion-accordion-group class="ion-no-padding" *ngFor="let order of orderList| paginate : 
+      { itemsPerPage: itemsPerPage, currentPage: currentPage }; 
+      let i = index" [attr.data-index]="i">
+        <!-- <ion-item-sliding > -->
+        <ion-accordion class="ion-no-padding">
+          <div slot="header" >
+            <ion-item class="ion-no-padding" detail="true" button detail-icon="caret-forward-outline">
+              <ion-thumbnail slot="start">
+                <img alt="Silhouette of mountains" src="../../../assets/images/order.png" />
+              </ion-thumbnail>
+              <ion-label>OrderID: {{order.id}}</ion-label>
+              <ion-label>Total: {{order.total}}$</ion-label>
+              <!-- <ion-label>Date: {{order.createdAt}}</ion-label> -->
+              <ion-button color="primary" (click)="showDetail(order.id)">Detail</ion-button>
+              <ion-button color="danger" (click)="presentDeleteActionSheet(order)">Delete</ion-button>
+            </ion-item>
+            <!-- <ion-item-options>
+                <ion-item-option color="danger" (click)="presentDeleteActionSheet(order)">Delete</ion-item-option>
+              </ion-item-options> -->
+          </div>
+          <ion-item slot="content" *ngFor="let order_details of order.orderDetails">
+            <ion-thumbnail slot="start">
+              <img alt="Silhouette of mountains"
+                src="{{order_details.imageUrl}}" />
+            </ion-thumbnail>
+            <ion-label>ProductID: {{order_details.prodID}}</ion-label>
+            <ion-label>Quantity: {{order_details.quantity}}</ion-label>
+          </ion-item>
+        </ion-accordion>
+        <!-- </ion-item-sliding> -->
+      </ion-accordion-group>
+    </ion-list>
+  </div>
+  <pagination-controls class="paginator" previousLabel="Prev" nextLabel="Next"
+    (pageChange)="onChange($event)"></pagination-controls>
+
+</ion-content>
